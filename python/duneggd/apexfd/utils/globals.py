@@ -408,8 +408,11 @@ class Params:
         # Apex parameters 
         cls._apex['AraShortWallSpace'] = (4*cls._cathode['widthCathode'] + 4*cls._tpc['gapSST_y'] - (24 * cls._apex['Arapuca_x'])) / 3
         cls._apex['AraLongWallSpace'] = (20*cls._cathode['lengthCathode'] + 5*cls._tpc['gapSST1_z'] + 2*cls._tpc['gapSST2_z'] - (120 * cls._apex['Arapuca_x'])) / 19
-        cls._apex['VerticalBar_x'] = cls._fieldcage['FieldCageSizeX'] - Q('0.1m')
-        cls._apex['LargeVertSpacing'] = cls._apex['VerticalBar_x'] - (12 * cls._apex['Arapuca_x']) - (11 * cls._apex['AraVertSpacing'])
+        cls._apex['VerticalBar_x'] = cls._tpc['TPC_x'] \
+                                     - 0.5*cls._cathode['heightCathode'] \
+                                     - 0.5*cls._apex['AraVertSpacing']
+        cls._apex['LargeVertSpacing'] = (2*cls._fieldcage['FieldCageSizeX'] - (24 * cls._apex['Arapuca_x']) - (22 * cls._apex['AraVertSpacing'])) / 3
+        cls._apex['CathodeSpacing'] = 2*cls._fieldcage['FieldCageSizeX'] - (24 * cls._apex['Arapuca_x']) - (22 * cls._apex['AraVertSpacing'])
 
         # add it to global list
         cls._params.update(cls._tpc)

@@ -44,9 +44,9 @@ class CryostatEncBuilder(gegede.builder.Builder):
         fLogicShell = geom.structure.Volume('fShellLog',
                                             material = 'fDuneSteel',
                                             shape = fShell)
-        fShell_OS = geom.surfaces.SkinSurface('fShellSurface',
-                                                   surface="fDuneSteelSurface",
-                                                   volume=fLogicShell)
+        #fShell_OS = geom.surfaces.SkinSurface('fShellSurface',
+        #                                           surface="fDuneSteelSurface",
+        #                                           volume=fLogicShell)
         fPhysShell = geom.structure.Placement('fPhysShell',
                                               pos = "posCenter",
                                               volume = fLogicShell)

@@ -212,17 +212,17 @@ def construct_materials(geom):
                                                 components = (("copper", 0.981),
                                                                           ("beryllium", 0.019)))
     m_lar = geom.matter.Mixture("LAr", density = "1.40g/cc",
-                                                components = (("argon", 1.0000),),
-                                                properties = (("RINDEX", _LAR_RINDEX),
-                                                              ("RAYLEIGH", _LAR_RAYLEIGH),
-                                                              ("ABSLENGTH", _LAR_ABSLENGTH),
-                                                              ("SCINTILLATIONCOMPONENT1", _LAR_SCINT1),
-                                                              ("SCINTILLATIONCOMPONENT2", _LAR_SCINT2),
-                                                              ("SCINTILLATIONTIMECONSTANT1", [(6.0,)]),
-                                                              ("SCINTILLATIONTIMECONSTANT2", [(1590.0,)]),
-                                                              ("SCINTILLATIONYIELD", [(25000.0,)]),
-                                                              ("SCINTILLATIONYIELD1", [(0.3,)]),
-                                                              ("RESOLUTIONSCALE", [(1.0,)])))
+                                                components = (("argon", 1.0000),))
+                                                #properties = (("RINDEX", _LAR_RINDEX),
+                                                #              ("RAYLEIGH", _LAR_RAYLEIGH),
+                                                #              ("ABSLENGTH", _LAR_ABSLENGTH),
+                                                #              ("SCINTILLATIONCOMPONENT1", _LAR_SCINT1),
+                                                #              ("SCINTILLATIONCOMPONENT2", _LAR_SCINT2),
+                                                #              ("SCINTILLATIONTIMECONSTANT1", [(6.0,)]),
+                                                #              ("SCINTILLATIONTIMECONSTANT2", [(1590.0,)]),
+                                                #              ("SCINTILLATIONYIELD", [(25000.0,)]),
+                                                #              ("SCINTILLATIONYIELD1", [(0.3,)]),
+                                                #              ("RESOLUTIONSCALE", [(1.0,)])))
     m_argas = geom.matter.Mixture("ArGas", density = "0.00166g/cc",
                                                 components = (("argon", 1.0),))
     m_g10 = geom.matter.Mixture("G10", density = "1.7g/cc",
@@ -288,11 +288,11 @@ def construct_materials(geom):
                                                         ("EFFICIENCY", _ZERO_EFF)))
     m_ptp = geom.matter.Molecule("pTP", density = "1.079g/cc",
                         elements = (("carbon", 18),
-                                    ("hydrogen", 14)),
-                        properties = (("RINDEX", _PTP_RINDEX),
-                                      ("WLSABSLENGTH", _PTP_WLSABSLENGTH),
-                                      ("WLSCOMPONENT", _PTP_WLSCOMP),
-                                      ("WLSTIMECONSTANT", [(5.0,)])))
+                                    ("hydrogen", 14)))
+                        #properties = (("RINDEX", _PTP_RINDEX),
+                        #              ("WLSABSLENGTH", _PTP_WLSABSLENGTH),
+                        #              ("WLSCOMPONENT", _PTP_WLSCOMP),
+                        #              ("WLSTIMECONSTANT", [(5.0,)])))
     m_nigas1atm80k = geom.matter.Mixture("NiGas1atm80K", density = "0.0039g/cc",
                                                 components = (("nitrogen", 1.000),))
     m_nigas = geom.matter.Mixture("NiGas", density = "0.001165g/cc",
