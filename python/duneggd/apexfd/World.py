@@ -41,18 +41,31 @@ class WorldBuilder(gegede.builder.Builder):
         detencLV = detenc.get_volume()
 
         # define where it goes inside the world volume
+        #detenc_pos = geom.structure.Position('pos'+detenc.name,
+        #                                     x = globals.get("OriginXSet"),
+        #                                     y = globals.get("OriginYSet"),
+        #                                     z = globals.get("OriginZSet"))
+        
+        box_x = globals.get("posCryoInDetEnc_x") \
+                + 0.5*globals.get("Argon_x") \
+                - globals.get("HeightGaseousAr") \
+                - globals.get("TPC_x") \
+                - 0.5*globals.get("heightCathode")
+        box_y = globals.get("posCryoInDetEnc_y")
+        box_z = globals.get("posCryoInDetEnc_z")
         detenc_pos = geom.structure.Position('pos'+detenc.name,
-                                             x = globals.get("OriginXSet"),
-                                             y = globals.get("OriginYSet"),
-                                             z = globals.get("OriginZSet"))
+                                     x = -box_x,    # = +69.0 cm
+                                     y = -box_y,    # =  0
+                                     z = -box_z)    # = +4145.2 cm
+        
         detenc_rot = geom.structure.Rotation('rot'+detenc.name,
                                              x = '0 deg',
                                              y = '0 deg',
                                              z = '-90 deg')
         detenc_place = geom.structure.Placement('place'+detenc.name,
                                                 volume = detencLV,
-                                                pos = detenc_pos,
-                                                rot = detenc_rot)
+                                                pos = detenc_pos)
+                                                #rot = detenc_rot)
 
         # place it inside the world volume
         worldLV.placements.append(detenc_place.name)
