@@ -18,6 +18,8 @@ class Params:
     _world['Cathode_switch'] = True
     _world['workspace'] = 0
     _world['pdsconfig'] = 0
+    _world['gaps'] = False
+    _world['gapArapucas'] = True
     _world['wires'] = True
     _world['tpc'] = True
     _world['simple'] = True
@@ -117,7 +119,7 @@ class Params:
     
     _apex['Arapuca_x'] = Q('50.0cm')
     _apex['Arapuca_y'] = Q('50.0cm')
-    _apex['Arapuca_z'] = Q('0.7cm')
+    _apex['Arapuca_z'] = Q('0.6cm')
     _apex['ptpWidth'] = Q('2.0um')
     _apex['ArapucaOffset'] = Q('7.0cm')
     _apex['AraVertSpacing'] = Q('0.5cm')
@@ -406,8 +408,8 @@ class Params:
         cls._cathode['lengthCathodeBottom'] =2*(cls._tpc['lengthCRM'] + cls._tpc['borderCRUBottom_z'])
         
         # Apex parameters 
-        cls._apex['AraShortWallSpace'] = (4*cls._cathode['widthCathode'] + 4*cls._tpc['gapSST_y'] - (24 * cls._apex['Arapuca_x'])) / 3
-        cls._apex['AraLongWallSpace'] = (20*cls._cathode['lengthCathode'] + 5*cls._tpc['gapSST1_z'] + 2*cls._tpc['gapSST2_z'] - (120 * cls._apex['Arapuca_x'])) / 19
+        cls._apex['AraShortWallSpace'] = (cls._cryostat['TPCEnclosure_y'] - 24*cls._apex['Arapuca_x'] - 2*cls._apex['Arapuca_z'] - 4*cls._apex['ptpWidth']) / 3 #(4*cls._cathode['widthCathode'] + 4*cls._tpc['gapSST_y'] - (24 * cls._apex['Arapuca_x'])) / 3
+        cls._apex['AraLongWallSpace'] = (cls._cryostat['TPCEnclosure_z'] - 120*cls._apex['Arapuca_x'] - 2*cls._apex['Arapuca_z'] - 4*cls._apex['ptpWidth']) / 19 #(20*cls._cathode['lengthCathode'] + 5*cls._tpc['gapSST1_z'] + 2*cls._tpc['gapSST2_z'] - (120 * cls._apex['Arapuca_x'])) / 19
         cls._apex['VerticalBar_x'] = cls._tpc['TPC_x'] \
                                      - 0.5*cls._cathode['heightCathode'] \
                                      - 0.5*cls._apex['AraVertSpacing']
