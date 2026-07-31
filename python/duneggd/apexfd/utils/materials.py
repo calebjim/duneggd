@@ -28,11 +28,6 @@ def construct_materials(geom):
                                                 components = (("videRef", 1.0),))
     m_aluminum_al = geom.matter.Mixture("ALUMINIUM_Al", density = "2.6990g/cc",
                                                 components = (("aluminum", 1.0000),))
-    skin_aluminum_al = geom.surfaces.OpticalSurface("AlSurface", 
-                                                    model="unified", finish="ground",
-                                                    type="dielectric_metal", value=0.0,
-                                                    properties=(("REFLECTIVITY", _FC_REFL),
-                                                                ("EFFICIENCY",   _ZERO_EFF)))
     m_silicon_si = geom.matter.Mixture("SILICON_Si", density = "2.3300g/cc",
                                                 components = (("silicon", 1.0000),))
     m_epoxy_resin = geom.matter.Molecule("epoxy_resin", density = "1.1250g/cc",
@@ -187,11 +182,6 @@ def construct_materials(geom):
                         elements = (("hydrogen", 4),
                                     ("carbon", 5),
                                     ("oxygen", 2)))
-    skin_mylar = geom.surfaces.OpticalSurface("MylarSurface",
-                                            model="unified", finish="ground",
-                                            type="dielectric_metal", value=0.0,
-                                            properties=(("REFLECTIVITY", _ARABACK_REFL),
-                                                        ("EFFICIENCY", _ZERO_EFF)))
     m_ptp = geom.matter.Molecule("pTP", density = "1.079g/cc",
                         elements = (("carbon", 18),
                                     ("hydrogen", 14)))
@@ -234,11 +224,6 @@ def construct_materials(geom):
     m_vm2000 = geom.matter.Molecule("vm2000", density = "1.2g/cc",
                                                 elements = (("carbon", 2),
                                                                         ("hydrogen", 4)))
-    skin_anode = geom.surfaces.OpticalSurface("AnodeSurface", 
-                                              model="unified", finish="ground",
-                                              type="dielectric_metal", value=0.0,
-                                              properties=(("REFLECTIVITY", _ANODE_REFL),
-                                                          ("EFFICIENCY", _ZERO_EFF)))
     WoodMaterial = geom.matter.Mixture("Wood", density = "0.5g/cc",
                                                 components = (("hydrogen", 0.06),
                                                                         ("carbon", 0.5),
@@ -251,11 +236,6 @@ def construct_materials(geom):
                                                                         ("copper", 0.005),
                                                                         ("chromium", 0.003),
                                                                         ("carbon", 0.002)))
-    skin_dunesteel = geom.surfaces.OpticalSurface("fDuneSteelSurface",
-                                                  model="unified", finish="ground",
-                                                  type="dielectric_metal", value=0.0,
-                                                  properties=(("REFLECTIVITY", _CRYO_REFL),
-                                                              ("EFFICIENCY", _ZERO_EFF)))
     m_bp = geom.matter.Mixture("BP", density = "0.95g/cc",
                                components = (("hydrogen", 0.116),
                                              ("carbon", 0.612),
